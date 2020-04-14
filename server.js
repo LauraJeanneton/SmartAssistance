@@ -21,15 +21,29 @@ app.get('/index', (req, res) => {
     res.send("INDEX");
 });
 
+app.get('/connexion', function(req, res) {
+    res.redirect('connexion');
+});
+
 app.post('/connexion', function(req, res) {
-    res.redirect('');
+    res.redirect('/membre');
 });
 
 app.post('/inscription', function(req, res) {
-    res.redirect('');
+    res.redirect('/membre');
 });
 
-app.get('/test', (req,res) =>{
-    res.send({express  : 'TEST'})
+app.get('/membre', (req,res) =>{
+    res.redirect('membre');
+});
+
+app.get('/posts', function(req, res) {
+    res.redirect('posts');
+});
+app.get('/message', function(req, res) {
+    res.redirect('message');
+});
+app.get('/param', function(req, res) {
+    res.redirect('param');
 });
 

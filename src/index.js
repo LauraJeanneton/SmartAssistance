@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './css/index.css'
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import App from './App'
+import Home from './home'
+import Membre from './Membre/membre'
+import Posts from './Membre/posts'
+import Message from './Membre/messages'
+import Paramètres from './Membre/param'
+import Connexion from "./Connexion";
+import Inscription from "./inscription";
+const routing = (
+    <Router>
+        <div id='title'>Smart Assistance <br/>
+            <img src={"image/frise.jpg"}/>
+        </div>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/connexion" component={Connexion}/>
+        <Route exact path="/inscription" component={Inscription}/>
+        <Route exact path="/membre" component={Membre}/>
+        <Route exact path="/posts" component={Posts}/>
+        <Route exact path="/message" component={Message}/>
+        <Route exact path="/param" component={Paramètres}/>
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    </Router>
+)
+ReactDOM.render(routing, document.getElementById('root'))
