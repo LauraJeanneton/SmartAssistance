@@ -1,7 +1,5 @@
-
-const express = require('express');
+const express  = require("express");
 const app = express();
-let fs = require('fs');
 const port = process.env.PORT || 5000;
 app.use(express.static(__dirname+'/src'));
 app.use(express.static('src'));
