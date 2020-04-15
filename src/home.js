@@ -5,13 +5,13 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <form action="/connexion" method="get">
-                    <button>Se Connecter</button>
-                </form>
+                <div id="CoButton">
+                    <ul>
+                        <li><a href="/connexion">Se Connecter</a></li>
+                        <li><a href="/inscription">S'inscrire</a></li>
+                    </ul>
+                </div>
 
-                <form action="/inscription" method="get">
-                    <button>S'inscrire</button>
-                </form>
                 <React.StrictMode>
                     <Appli />
                 </React.StrictMode>

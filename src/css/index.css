@@ -7,7 +7,7 @@
   margin-right: auto ;
   border-radius: 10px;
   font-size : 60px;
-  border: 3px solid #ffb46e;
+  border: 3px solid black;
   text-align: center;
 }
 
@@ -40,4 +40,8 @@ img {
   position: absolute;
   max-height: 10%;
   max-height: 10%;
+}
+
+body{
+  background-image: url("../image/background.jpg");
 }
