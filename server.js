@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // console.log that your server is up and running
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+
 
 
 app.get('/', (req, res) => {
@@ -62,3 +62,4 @@ app.get('/newMessage'),function (req,res) {
 app.get('/archiveMessage'),function (req,res) {
     res.redirect('archiveMessage');
 }
+app.listen(port, () => console.log(`Listening on port ${port}`));
