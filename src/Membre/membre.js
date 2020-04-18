@@ -36,7 +36,7 @@ class App extends React.Component {
                     <br/> Ville : {this.getVille()}
                     <br/> Age : {this.getAge()}
                     <br/> Annonces passées :
-                    <img src={"../image/perso1.png"}/>
+                    <img src={"../image/perso1.png"} alt="No image"/>
                 </div>
 
                 <br/><br/>
@@ -58,7 +58,7 @@ class App extends React.Component {
                     <br/><br/>Dans l'onglet "Mes posts", vous avez accès à toutes les annonces que vous avez publiées. Vous pouvez les consultées, les supprimées
                     et les modifiées. C'est également là que vous pourrez publier de nouvelles annonces. <br/><br/>
                     Enfin, dans l'onglet "Messagerie", vous pourrez gérer vos discussions avec les autres utilisaeurs de SmartAssistance. <br/>
-                    <img src={"../image/entete.jpg"}/>
+                    <img src={"../image/entete.jpg"} alt="No image"/>
                 </div>
 
 
