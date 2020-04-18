@@ -89,12 +89,10 @@ function connexion_bdd(){
 function connexion_users() {
     console.log("Dans connexion Users");
     const client = connexion_bdd();
-    client.query('SELECT * FROM Users', function (err, result) {
-        if (err) {
-            console.log(err);
-        }
-        console.log(result.rows[0]);
-    });
+    client
+        .query('SELECT * FROM USERS')
+        .then(res => console.log(res.rows[0]))
+        .catch(e => console.error(e.stack))
 }
 
 
