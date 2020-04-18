@@ -14,6 +14,18 @@
     color: black ;
     border-color: black ;
 }
+
+
+#menu a.deconnect {
+    position: absolute;
+    left: 20px;
+    margin-top: -80px;
+    background: none;
+    color: black ;
+    border-color: black ;
+}
+
+
 #menu a {
     display: block;
     width: 110px;

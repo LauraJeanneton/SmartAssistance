@@ -28,6 +28,7 @@ class App extends React.Component {
             <div>
                 <div id={"menu"}>
                     <a href="/" className={'home'}>Accueil</a>
+                    <a href="/" className={'deconnect'}>Se déconnecter</a>
                 </div>
                 <div id={"menu"}>
                     <ul id="menu">
@@ -36,7 +37,6 @@ class App extends React.Component {
                         <li><a href="/message">Messagerie</a></li>
                     </ul>
                 </div>
-                {/*A faire : Voir ses posts et agir dessus (ajout, supprimer, modifier)*/}
                 <div>
                     <div className="vertical-menu">
                         <a href="/postsPost" className="publier">Publier</a>

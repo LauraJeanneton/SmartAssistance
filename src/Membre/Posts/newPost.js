@@ -9,6 +9,7 @@ class App extends React.Component {
             <div>
                 <div id={"menu"}>
                     <a href="/" className={'home'}>Accueil</a>
+                    <a href="/" className={'deconnect'}>Se déconnecter</a>
                 </div>
                 <div id={"menu"}>
                     <ul id="menu">
