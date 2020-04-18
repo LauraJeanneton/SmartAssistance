@@ -1,5 +1,6 @@
 const express  = require("express");
 var bodyParser = require("body-parser");
+const pgp = require('pg-promise');
 const path = require('path');
 
 const app = express();
@@ -72,8 +73,6 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 function connexion_bdd(){
-    const pgp = require('pg-promise')
-
     const cn = {
         host: 'ec2-18-233-137-77.compute-1.amazonaws.com',
         port: 5432,
@@ -88,13 +87,13 @@ function connexion_bdd(){
 }
 function connexion_users() {
     const db = connexion_bdd();
-    db.one('SELECT name FROM Users WHERE name =\'Laura\' ;', [123])
-        .then(user => {
-            console.log(user.name); // print user name;
-        })
-        .catch(error => {
-            console.log(error); // print the error;
-        });
+    // db.one('SELECT name FROM Users WHERE name =\'Laura\' ;', [123])
+    //     .then(user => {
+    //         console.log(user.name); // print user name;
+    //     })
+    //     .catch(error => {
+    //         console.log(error); // print the error;
+    //     });
 }
 
 
