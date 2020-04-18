@@ -13,9 +13,6 @@ app.use(bodyParser.json());
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
-
-// create a GET route
-
 app.get('/', (req, res) => {
     res.redirect('home');
 });
