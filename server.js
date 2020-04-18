@@ -14,12 +14,9 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 app.get('/', (req, res) => {
-    rend.send("Dans le serveur");
+    rend.end("Dans le serveur");
 });
 
-app.get('/index', (req, res) => {
-    res.send("INDEX");
-});
 
 app.get('/connexion', function(req, res) {
     res.redirect('connexion');
