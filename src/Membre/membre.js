@@ -18,8 +18,8 @@ class App extends React.Component {
         return (
             <div>
                 <div id={"menu"}>
-                    <a href="/" className={'home'}>Accueil</a>
-                    <a href="/" className={'deconnect'}>Se déconnecter</a>
+                    <a href="/" className={'home'} alt="No image">Accueil</a>
+                    <a href="/" className={'deconnect'}alt="No image">Se déconnecter</a>
                 </div>
                 <div id={"menu"}>
                     <ul>

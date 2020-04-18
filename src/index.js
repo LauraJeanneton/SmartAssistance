@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './css/index.css'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import App from './App'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import Home from './home'
 import Connexion from "./Connexion";
 import Inscription from "./inscription";
