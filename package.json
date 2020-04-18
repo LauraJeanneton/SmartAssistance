@@ -19,7 +19,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "server": "serve -s build",
+    "server": "node server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
