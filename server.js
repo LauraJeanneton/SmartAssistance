@@ -100,7 +100,6 @@ function connexion_users() {
             if (res.rows[0]!=null) nbRow=1;
         })
         .catch(e => console.error(e.stack))
-    client.close();
     return nbRow!=1;
 }
 
