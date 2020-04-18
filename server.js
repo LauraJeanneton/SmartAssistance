@@ -14,6 +14,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 app.get('/', (req, res) => {
+    rend.send("Dans le serveur");
 });
 
 app.get('/index', (req, res) => {
