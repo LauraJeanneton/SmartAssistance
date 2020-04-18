@@ -30,7 +30,7 @@ app.get('/connexion', function(req, res) {
 });
 
 app.post('/connexion', function(req, res) {
-    var pseudos = req.body.pseudo;
+    connexion_users();
     res.redirect('membre');
 });
 
@@ -68,3 +68,37 @@ app.get('/archiveMessage'),function (req,res) {
     res.redirect('archiveMessage');
 }
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+
+function connexion_bdd(){
+    const pgp = require('pg-promise')
+
+    const cn = {
+        host: 'ec2-18-233-137-77.compute-1.amazonaws.com',
+        port: 5432,
+        database: 'd6o9rau53ul8j8',
+        user: 'mjbrgpfqdvtdps',
+        password: '04427e20360d65ea15557b5ea17c995978828f3b11232a67e517589d9a95280f',
+        ssl : true,
+        rejectUnauthorized : false,
+    };
+    const db = pgp(cn);
+    return db;
+}
+function connexion_users() {
+    const db = connexion_bdd();
+    db.one('SELECT name FROM Users WHERE name =\'Laura\' ;', [123])
+        .then(user => {
+            console.log(user.name); // print user name;
+        })
+        .catch(error => {
+            console.log(error); // print the error;
+        });
+}
+
+
+
+
+
+
