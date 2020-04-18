@@ -14,7 +14,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 app.get('/', (req, res) => {
-    rend.end("Dans le serveur");
+    req.end("Dans le serveur");
 });
 
 
