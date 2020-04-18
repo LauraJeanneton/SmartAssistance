@@ -88,13 +88,12 @@ function connexion_bdd(){
 function connexion_users() {
     console.log("Dans connexion Users");
     connexion_bdd();
-    // db.one('SELECT name FROM Users WHERE name =\'Laura\' ;', [123])
-    //     .then(user => {
-    //         console.log(user.name); // print user name;
-    //     })
-    //     .catch(error => {
-    //         console.log(error); // print the error;
-    //     });
+    client.query('SELECT * FROM Userss', [1], function (err, result) {
+        if (err) {
+            console.log(err);
+        }
+        console.log(result.rows);
+    });
 }
 
 
