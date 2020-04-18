@@ -84,10 +84,11 @@ function connexion_bdd(){
         rejectUnauthorized : false
     });
     client.connect();
+    return client;
 }
 function connexion_users() {
     console.log("Dans connexion Users");
-    connexion_bdd();
+    const client = connexion_bdd();
     client.query('SELECT * FROM Userss', [1], function (err, result) {
         if (err) {
             console.log(err);
