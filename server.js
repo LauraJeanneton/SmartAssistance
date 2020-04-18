@@ -32,8 +32,11 @@ app.get('/connexion', function(req, res) {
 });
 
 app.post('/connexion', function(req, res) {
-    connexion_users();
-    res.redirect('membre');
+    if (connexion_users()==true) {
+        res.redirect('membre');
+    }
+    else res.redirect('connexion');
+
 });
 
 app.post('/inscription', function(req, res) {
@@ -87,12 +90,18 @@ function connexion_bdd(){
     return client;
 }
 function connexion_users() {
+    const nbRow=0;
     console.log("Dans connexion Users");
     const client = connexion_bdd();
     client
         .query('SELECT * FROM USERS')
-        .then(res => console.log(res.rows[0]))
+        .then(res =>{
+            console.log(res.rows[0]);
+            if (res.rows[0]!=null) nbRow=1;
+        })
         .catch(e => console.error(e.stack))
+    client.close();
+    return nbRow!=1;
 }
 
 
