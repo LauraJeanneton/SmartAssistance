@@ -14,7 +14,8 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 app.get('/', (req, res) => {
-    res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+    return res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+    next();
 });
 
 
