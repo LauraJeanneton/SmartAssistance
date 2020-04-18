@@ -7,7 +7,7 @@
     margin-right: auto ;
     border-radius: 10px;
     border: 3px solid black;
-    background-image: url("src/image/background.jpg");
+    background-image: url("../image/background.jpg");
 }
 
 h1 {
