@@ -49,7 +49,7 @@
 
 
 #utilisateur{
-    background-image: url("../image/background.jpg");
+    background-image: url("src/image/background.jpg");
     position: static;
     width: 500px;
     margin-top: 0px;

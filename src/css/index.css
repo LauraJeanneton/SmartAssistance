@@ -42,3 +42,6 @@ img {
   max-height: 10%;
 }
 
+body{
+  background-image: url("src/image/background.jpg");
+}
