@@ -93,7 +93,7 @@ function connectFunc(){
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
-        if (result.rows[0]!=null) haveResult=true;
+        if (result.rows[0]!='undefined') haveResult=true;
     });
 
     return haveResult;
@@ -107,7 +107,7 @@ function connectFuncTest(){
             console.log("C'est l'erreur : " + err);
         }
         console.log("RESULTAT : " +result.rows[0]);
-        if (result.rows[0]!=null) haveResult=true;
+        if (result.rows[0]!='undefined') haveResult=true;
     });
 
     return haveResult;
