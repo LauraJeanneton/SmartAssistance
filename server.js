@@ -78,7 +78,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 function connexion_bdd(){
-    const pgp = require('pg-promise')
+    const pgp = require('pg')
 
     const cn = {
         host: 'ec2-18-233-137-77.compute-1.amazonaws.com', // server name or IP address;
