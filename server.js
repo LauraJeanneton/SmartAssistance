@@ -96,8 +96,7 @@ function connexion_users() {
     const nbRow=0;
     console.log("Dans connexion Users");
     const client = connexion_bdd();
-
-
+    console.log("Dans connexion Users after trucs");
     client.query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));',(err,res) =>{
         if (err) {
             console.log(err.stack);
