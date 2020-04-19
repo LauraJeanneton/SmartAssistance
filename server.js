@@ -97,6 +97,7 @@ function connexion_users() {
     console.log("Dans connexion Users");
     const client = connexion_bdd();
     console.log("Dans connexion Users after trucs");
+    console.log('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));');
     client.query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));',(err,res) =>{
         if (err) {
             console.log(err.stack);
@@ -105,6 +106,12 @@ function connexion_users() {
             nbRow ++;
         }
     })
+
+
+    client
+        .query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));')
+        .then(res => console.log(res.rows[0]))
+        .catch(e => console.error(e.stack))
     return nbRow!=0;
 }
 
