@@ -42,7 +42,7 @@ app.post('/connexion', function(req, res) {
 });
 
 app.post('/inscription', function(req, res) {
-    client.query('SELECT * FROM USERS', [1], function (err, result) {
+    client.query('INSERT INTO USERS (login,name,city,age,password)VALUES (\'LauraJ\',\'Laura\',\'Marseille\',25,md5(\'test\'));', [1], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : "+ err);
         }
