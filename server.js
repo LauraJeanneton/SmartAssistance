@@ -15,8 +15,12 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 
-
-
+const { Client } = require('pg');
+const connectionString = 'postgres://mjbrgpfqdvtdps:04427e20360d65ea15557b5ea17c995978828f3b11232a67e517589d9a95280f@ec2-18-233-137-77.compute-1.amazonaws.com:5432/d6o9rau53ul8j8';
+const client = new Client({
+    connectionString: connectionString
+});
+client.connect();
 
 app.get('/', (req, res) => {
     return res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
@@ -38,7 +42,14 @@ app.post('/connexion', function(req, res) {
 });
 
 app.post('/inscription', function(req, res) {
-    test();
+    client.query('SELECT * FROM USERS', [1], function (err, result) {
+        if (err) {
+            console.log("C'est l'erreur : "+ err);
+            res.status(400).send(err);
+        }
+        console.log("Apres erreur");
+        res.status(200).send(result.rows);
+    });
     res.redirect('membre');
 });
 
