@@ -34,13 +34,14 @@ app.get('/connexion', function(req, res) {
 });
 
 app.post('/connexion', function(req, res) {
-    connectFunc();
-    res.redirect('membre');
+    if (connectFunc()==true) res.redirect('membre');
+    else re.redirect('connexion');
 });
 
 app.post('/inscription', function(req, res) {
-    inscrFunc();
-    res.redirect('membre');
+    connectFuncTest
+    if (connectFuncTest()==true) res.redirect('membre');
+    else re.redirect('connexion');
 });
 
 app.get('/membre', (req,res) =>{
@@ -87,19 +88,28 @@ function inscrFunc(){
 
 
 function connectFunc(){
+    haveResult = false;
     client.query('SELECT login from USERS where login=$1;',['Laura'], function (err, result) {
         if (err) {
-            console.log("C'est l'erreur : "+ err);
+            console.log("C'est l'erreur : " + err);
         }
-        console.log("Apres erreur 1: " + result.rows[0]);
+        if (result.rows[0]!=null) haveResult=true;
     });
 
-    client.query('SELECT login from USERS where login=$1;',['Machin'], function (err, result) {
+    return haveResult;
+}
+
+
+function connectFuncTest(){
+    haveResult = false;
+    client.query('SELECT login from USERS where login=$1;',['truc'], function (err, result) {
         if (err) {
-            console.log("C'est l'erreur : "+ err);
+            console.log("C'est l'erreur : " + err);
         }
-        console.log("Apres erreur 2  : " + result.rows[0]);
+        if (result.rows[0]!=null) haveResult=true;
     });
+
+    return haveResult;
 }
 
 
