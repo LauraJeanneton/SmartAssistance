@@ -92,6 +92,7 @@ function connectFunc(){
             console.log("C'est l'erreur : "+ err);
         }
         console.log("Apres erreur");
+        res.status(200).send(result.rows);
     });
 }
 
