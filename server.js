@@ -45,10 +45,8 @@ app.post('/inscription', function(req, res) {
     client.query('SELECT * FROM USERS', [1], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : "+ err);
-            res.status(400).send(err);
         }
-        console.log("Apres erreur");
-        res.status(200).send(result.rows);
+        console.log("Apres erreur : " + result.rows);
     });
     res.redirect('membre');
 });
