@@ -35,13 +35,13 @@ app.get('/connexion', function(req, res) {
 
 app.post('/connexion', function(req, res) {
     if (connectFunc()==true) res.redirect('membre');
-    else re.redirect('connexion');
+    else res.redirect('connexion');
 });
 
 app.post('/inscription', function(req, res) {
     connectFuncTest
     if (connectFuncTest()==true) res.redirect('membre');
-    else re.redirect('connexion');
+    else res.redirect('connexion');
 });
 
 app.get('/membre', (req,res) =>{
