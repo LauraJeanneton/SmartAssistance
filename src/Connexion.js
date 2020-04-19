@@ -3,10 +3,11 @@ import Appli from './App'
 import './css/Connexion.css'
 class App extends React.Component {
 
-    constructor() {
-        super();
-        mess
+    constructor(props) {
+        super(props);
+        this.state = {login : 'Laura'};
     }
+
 
     render() {
         return (
@@ -26,9 +27,8 @@ class App extends React.Component {
                         <br/><br/>
                         <input type={"submit"} value={"Se connecter"}/>
                     </form>
-                    {}
                 </div>
-
+                {this.state}
 
             </div>
 
