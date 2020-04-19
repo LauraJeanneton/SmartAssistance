@@ -40,7 +40,10 @@ app.post('/connexion', function(req, res) {
 });
 
 app.post('/inscription', function(req, res) {
-    res.redirect('membre');
+    if (connexion_users()==true) {
+        res.redirect('membre');
+    }
+    else res.redirect('inscription');
 });
 
 app.get('/membre', (req,res) =>{
@@ -94,7 +97,7 @@ function connexion_users() {
     console.log("Dans connexion Users");
     const client = connexion_bdd();
     client
-        .query('SELECT * FROM USERS')
+        .query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test\',\'Test\',\'Paris\',25,mdr(\'test\'));')
         .then(res =>{
             console.log(res.rows[0]);
             if (res.rows[0]!=null) nbRow=1;
