@@ -91,6 +91,26 @@ function connexion_bdd(){
     console.log("After connection");
     return db;
 }
+
+
+function test(){
+    const pg = require('pg');
+    const pool = new pg.Pool({
+        user: 'mjbrgpfqdvtdps',
+        host: 'ec2-18-210-51-239.compute-1.amazonaws.com',
+        database: 'd6o9rau53ul8j8',
+        password: '04427e20360d65ea15557b5ea17c995978828f3b11232a67e517589d9a95280f',
+        port: 5432
+    });
+
+    pool.query("SELECT * FROM Users", (err,res) => {
+        console.log("Dans le select");
+        console.log(err,res);
+        pool.end();
+    });
+}
+
+
 function connexion_users() {
     const db = connexion_bdd();
     db.one('SELECT * FROM Users ;', [123])
@@ -104,26 +124,6 @@ function connexion_users() {
         });
     return 0;
 }
-
-function test(){
-    const pg = require('pg');
-    const pool = new pg.Pool({
-        user: 'ydwywwpsblujfg',
-        host: 'ec2-18-210-51-239.compute-1.amazonaws.com',
-        database: 'd7vagnm0oghuv2',
-        password: '0fcf0fb631fd6115ff9eb21998691c1401ff8c14cebb83b5e250c2b0ed2d4dd3',
-        port: 5432
-    });
-
-    pool.query("SELECT * FROM Users", (err,res) => {
-        console.log("Dans le select");
-        console.log(err,res);
-        pool.end();
-    });
-
-}
-
-
 
 
 
