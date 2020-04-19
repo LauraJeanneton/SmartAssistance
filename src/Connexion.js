@@ -2,6 +2,12 @@ import React from 'react'
 import Appli from './App'
 import './css/Connexion.css'
 class App extends React.Component {
+
+    constructor() {
+        super();
+        mess
+    }
+
     render() {
         return (
             <div>
@@ -20,7 +26,7 @@ class App extends React.Component {
                         <br/><br/>
                         <input type={"submit"} value={"Se connecter"}/>
                     </form>
-
+                    {}
                 </div>
 
 

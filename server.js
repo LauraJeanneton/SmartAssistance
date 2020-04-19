@@ -46,7 +46,7 @@ app.post('/connexion', function(req, res) {
         if (result.rows[0]!=undefined) {
             res.redirect('membre');
         }
-        else res.redirect('connectError');
+        else res.send('connexion',{message : false});
     });
 
 

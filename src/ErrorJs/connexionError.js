@@ -19,7 +19,7 @@ class App extends React.Component {
                         <br/><br/>
                         <input type={"submit"} value={"Se connecter"}/>
                     </form>
-                    LE MOT DE PASSE OU LE LOGIN EST INCORRECT
+                    Oups ! Votre login ou votre mot de passe est incorrect.
                 </div>
 
 
