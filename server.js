@@ -96,14 +96,17 @@ function connexion_users() {
     const nbRow=0;
     console.log("Dans connexion Users");
     const client = connexion_bdd();
-    client
-        .query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test\',\'Test\',\'Paris\',25,mdr(\'test\'));')
-        .then(res =>{
+
+
+    client.query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));',(err,res) =>{
+        if (err) {
+            console.log(err.stack);
+        } else {
             console.log(res.rows[0]);
-            if (res.rows[0]!=null) nbRow=1;
-        })
-        .catch(e => console.error(e.stack))
-    return nbRow!=1;
+            nbRow ++;
+        }
+    })
+    return nbRow!=0;
 }
 
 
