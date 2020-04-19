@@ -2,6 +2,7 @@ const express  = require("express");
 var bodyParser = require("body-parser");
 const path = require('path');
 
+
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(express.static(__dirname+'/src'));
@@ -9,6 +10,7 @@ app.use(express.static('src'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 app.use(express.static(path.join(__dirname, '/build')));
@@ -27,14 +29,18 @@ const logger = null;
 
 app.get('/', (req, res) => {
     return res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+
     next();
 });
 
 
 
 app.get('/connexion', function(req, res) {
-    res.redirect('connexion');
+        var list = ["item1", "item2", "item3"];
+        res.json(list);
+        res.redirect('connexion');
 });
+
 
 app.post('/connexion', function(req, res) {
     // console.log("Pseudos :"+req.body.pseudo);
@@ -48,6 +54,8 @@ app.post('/connexion', function(req, res) {
     //     }
     //     else res.redirect('connexion');
     // });
+
+
     res.redirect('membre');
 });
 

@@ -1,15 +1,30 @@
 import React from 'react'
 import Appli from './App'
 import './css/Connexion.css'
+
+
+
 class App extends React.Component {
 
-    constructor(props) {
+    constructor(props){
         super(props);
-        this.state = {login : 'Laura'};
+        this.state = {
+            list: []
+        }
     }
 
+    componentDidMount() {
+        this.getList();
+    }
+
+    getList = () => {
+        fetch('/connexion')
+            .then(res => res.json())
+            .then(list => this.setState({ list }))
+    }
 
     render() {
+        const { list } = this.state;
         return (
             <div>
                 <React.StrictMode>
@@ -27,13 +42,37 @@ class App extends React.Component {
                         <br/><br/>
                         <input type={"submit"} value={"Se connecter"}/>
                     </form>
+                    <div>
+                        {list.length ? (
+                            <div>
+                                {/* Render the list of items */}
+                                {list.map((item) => {
+                                    return(
+                                        <div>
+                                            {item}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        ) : (
+                            <div>
+                                <h2>No List Items Found</h2>
+                            </div>
+                        )
+                        }
+                    </div>
+                    <Cool  adjective={'Génial'}/>
                 </div>
-                {this.state}
+
 
             </div>
 
         )
     }
 
+}
+
+function Cool({adjective='Cool'}){
+    return <p>Youpi ca marche ! {adjective}</p>
 }
 export default App

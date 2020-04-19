@@ -24,7 +24,7 @@ const routing = (
         </div>
         <Route exact path="/" component={Home}/>
         <Route exact path="/home" component={Home}/>
-        <Route exact path="/connexion" component={Connexion}/>
+        <Route path="/connexion" component={Connexion}/>
         <Route exact path="/inscription" component={Inscription}/>
         <Route exact path="/membre" component={Membre}/>
         <Route exact path="/posts" component={Posts}/>
