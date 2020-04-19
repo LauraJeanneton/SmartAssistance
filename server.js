@@ -92,7 +92,8 @@ function connectFunc(){
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
-        if (result.rows[0]!='undefined') haveResult=true;
+        console.log("RESULTAT : " +result.rows[0]);
+        if (result.rows[0]) haveResult=true;
     });
    console.log(haveResult);
     return haveResult;
