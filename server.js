@@ -89,7 +89,14 @@ function connexion_bdd(){
         ssl : true,
         rejectUnauthorized : false
     });
-    client.connect();
+    client.connect(err => {
+        if (err) {
+            console.error('error connecting', err.stack)
+        } else {
+            console.log('connected')
+            client.end()
+        }
+    })
     return client;
 }
 function connexion_users() {
@@ -97,16 +104,10 @@ function connexion_users() {
     console.log("Dans connexion Users");
     const client = connexion_bdd();
     console.log("Dans connexion Users after trucs");
-    client.query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test\',\'Test\',\'Paris\',25,md5(\'test\'));',(err,res) =>{
-        console.log("Dans Query 1");
-        if (err) {
-            console.log(err.stack);
-            console.log("Dans error 1");
-        } else {
-            console.log("Dans else 1");
-            console.log(res.rows[0]);
-            nbRow ++;
-        }
+
+    client.query('SELECT NOW()', (err, res) => {
+        console.log(err, res)
+        client.end()
     })
     console.log("Entre les deux clients");
 
