@@ -98,7 +98,8 @@ function connectFunc(){
         // console.log("RESULTAT 5: " +result.rows[0].anchor());
         // console.log("RESULTAT 6: " +result.rows[0].valueOf());
         // console.log("RESULTAT 7: " +result.rows.startsWith("undefined"));
-        if (result.rows[0]!=undefined) haveResult=true;
+        if (result.rows[0]!=undefined) return true;
+        else return false;
     });
    console.log(haveResult);
     return haveResult;
