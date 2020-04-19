@@ -80,43 +80,33 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 function connexion_bdd(){
-    const client = new Client({
-        host: 'ec2-18-233-137-77.compute-1.amazonaws.com',
+    const pgp = require('pg-promise')
+
+    const cn = {
+        host: 'ec2-18-233-137-77.compute-1.amazonaws.com', // server name or IP address;
         port: 5432,
         database: 'd6o9rau53ul8j8',
         user: 'mjbrgpfqdvtdps',
         password: '04427e20360d65ea15557b5ea17c995978828f3b11232a67e517589d9a95280f',
         ssl : true,
-        rejectUnauthorized : false
-    });
-    client.connect(err => {
-        if (err) {
-            console.error('error connecting', err.stack)
-        } else {
-            console.log('connected')
-            client.end()
-        }
-    })
-    return client;
+        rejectUnauthorized : false,
+    };
+    const db = pgp(cn);
+    console.log("After connection");
+    return db;
 }
 function connexion_users() {
-    const nbRow=0;
-    console.log("Dans connexion Users");
-    const client = connexion_bdd();
-    console.log("Dans connexion Users after trucs");
-
-    client.query('SELECT NOW()', (err, res) => {
-        console.log(err, res)
-        client.end()
-    })
-    console.log("Entre les deux clients");
-
-    client
-        .query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test\',\'Test\',\'Paris\',25,md5(\'test\'));')
-        .then(res =>  console.log("Dans Then"))
-        .catch(e =>  console.log("Dans error 2"))
-    console.log("Apres query 2");
-    return nbRow!=0;
+    const db = connexion_bdd();
+    db.one('SELECT * FROM Users ;', [123])
+        .then(user => {
+            console.log("Dans le then");
+            console.log(user.name); // print user name;
+        })
+        .catch(error => {
+            console.log("Dans le error");
+            console.log(error); // print the error;
+        });
+    return 0;
 }
 
 
