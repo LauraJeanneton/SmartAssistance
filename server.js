@@ -91,7 +91,14 @@ function connectFunc(){
         if (err) {
             console.log("C'est l'erreur : "+ err);
         }
-        console.log("Apres erreur : " + result.rows);
+        console.log("Apres erreur 1: " + result.rows[0]);
+    });
+
+    client.query('SELECT login from USERS where login=$1;',['Machin'], function (err, result) {
+        if (err) {
+            console.log("C'est l'erreur : "+ err);
+        }
+        console.log("Apres erreur 2  : " + result.rows[0]);
     });
 }
 
