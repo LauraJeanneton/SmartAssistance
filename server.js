@@ -92,7 +92,13 @@ function connectFunc(){
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
-        console.log("RESULTAT : " +result.rows[0]);
+        console.log("RESULTAT 1: " +result.rows[0][0]);
+        console.log("RESULTAT 2: " +result.rows[0]);
+        console.log("RESULTAT 3: " +result.rows[0].getAttributeNames());
+        console.log("RESULTAT 4: " +result.rows[0].hasAttributes());
+        console.log("RESULTAT 5: " +result.rows[0].anchor());
+        console.log("RESULTAT 6: " +result.rows[0].valueOf());
+        console.log("RESULTAT 7: " +result.rows.startsWith("undefined"));
         if (result.rows[0]) haveResult=true;
     });
    console.log(haveResult);
