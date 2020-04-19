@@ -106,6 +106,7 @@ function connectFuncTest(){
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
+        console.log("RESULTAT : " +result.rows[0]);
         if (result.rows[0]!=null) haveResult=true;
     });
 
