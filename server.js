@@ -34,13 +34,37 @@ app.get('/connexion', function(req, res) {
 });
 
 app.post('/connexion', function(req, res) {
-    if (connectFunc()==true) res.redirect('membre');
-    else res.redirect('connexion');
+    client.query('SELECT login from USERS where login=$1;',['Laura'], function (err, result) {
+        if (err) {
+            console.log("C'est l'erreur : " + err);
+        }
+        console.log("RESULTAT 1: " +result.rows[0][0]);
+        console.log("RESULTAT 2: " +result.rows[0]);
+        console.log("RESULTAT 3: " +result.rows);
+        // console.log("RESULTAT 5: " +result.rows[0].anchor());
+        // console.log("RESULTAT 6: " +result.rows[0].valueOf());
+        // console.log("RESULTAT 7: " +result.rows.startsWith("undefined"));
+        if (result.rows[0]!=undefined) res.redirect('membre');
+        else res.redirect('connexion');
+    });
+
+
 });
 
 app.post('/inscription', function(req, res) {
-    if (connectFuncTest()==true) res.redirect('membre');
-    else res.redirect('connexion');
+    client.query('SELECT login from USERS where login=$1;',['machin'], function (err, result) {
+        if (err) {
+            console.log("C'est l'erreur : " + err);
+        }
+        console.log("RESULTAT 1: " +result.rows[0][0]);
+        console.log("RESULTAT 2: " +result.rows[0]);
+        console.log("RESULTAT 3: " +result.rows);
+        // console.log("RESULTAT 5: " +result.rows[0].anchor());
+        // console.log("RESULTAT 6: " +result.rows[0].valueOf());
+        // console.log("RESULTAT 7: " +result.rows.startsWith("undefined"));
+        if (result.rows[0]!=undefined) res.redirect('membre');
+        else res.redirect('connexion');
+    });
 });
 
 app.get('/membre', (req,res) =>{
