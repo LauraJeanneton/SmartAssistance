@@ -39,7 +39,6 @@ app.post('/connexion', function(req, res) {
 });
 
 app.post('/inscription', function(req, res) {
-    connectFuncTest
     if (connectFuncTest()==true) res.redirect('membre');
     else res.redirect('connexion');
 });
@@ -95,7 +94,7 @@ function connectFunc(){
         }
         if (result.rows[0]!='undefined') haveResult=true;
     });
-
+   console.log(haveResult);
     return haveResult;
 }
 
@@ -109,7 +108,7 @@ function connectFuncTest(){
         console.log("RESULTAT : " +result.rows[0]);
         if (result.rows[0]!='undefined') haveResult=true;
     });
-
+    console.log(haveResult);
     return haveResult;
 }
 
