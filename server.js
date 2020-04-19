@@ -97,21 +97,24 @@ function connexion_users() {
     console.log("Dans connexion Users");
     const client = connexion_bdd();
     console.log("Dans connexion Users after trucs");
-    console.log('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));');
-    client.query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));',(err,res) =>{
+    client.query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test\',\'Test\',\'Paris\',25,md5(\'test\'));',(err,res) =>{
+        console.log("Dans Query 1");
         if (err) {
             console.log(err.stack);
+            console.log("Dans error 1");
         } else {
+            console.log("Dans else 1");
             console.log(res.rows[0]);
             nbRow ++;
         }
     })
-
+    console.log("Entre les deux clients");
 
     client
-        .query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test2\',\'Test\',\'Paris\',25,md5(\'test\'));')
-        .then(res => console.log(res.rows[0]))
-        .catch(e => console.error(e.stack))
+        .query('INSERT INTO USERS (login,name,city,age,password) VALUES(\'Test\',\'Test\',\'Paris\',25,md5(\'test\'));')
+        .then(res =>  console.log("Dans Then"))
+        .catch(e =>  console.log("Dans error 2"))
+    console.log("Apres query 2");
     return nbRow!=0;
 }
 
