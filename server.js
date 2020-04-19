@@ -37,8 +37,9 @@ app.get('/connexion', function(req, res) {
 });
 
 app.post('/connexion', function(req, res) {
-    console.log(req.body.pseudo);
-    client.query('SELECT login from USERS where login=$1;',['Laura'], function (err, result) {
+    console.log("Pseudos :"+req.body.pseudo);
+    console.log("Password :"+ req.body.password);
+    client.query('SELECT login from USERS where login=$1 and password = mdr5($2);',[req.body.pseudo,req.body.password], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
