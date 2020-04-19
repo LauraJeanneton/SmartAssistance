@@ -43,8 +43,10 @@ app.post('/connexion', function(req, res) {
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
-        if (result.rows[0]!=undefined) res.redirect('membre');
-        else res.redirect('connexion');
+        if (result.rows[0]!=undefined) {
+            res.redirect('membre');
+        }
+        else res.redirect('connectError');
     });
 
 

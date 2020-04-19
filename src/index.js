@@ -13,6 +13,7 @@ import Archive from "./Membre/Posts/archive";
 import Message from './Membre/Messagerie/messages'
 import MessageArchive from './Membre/Messagerie/messageArchive';
 import NouveauMessage from './Membre/Messagerie/newMessage';
+import ConnexionError from './ErrorJs/connexionError';
 
 
 
@@ -33,6 +34,7 @@ const routing = (
         <Route exact path="/postsPost" component={NewPost}/>
         <Route exact path="/newMessage" component={NouveauMessage}/>
         <Route exact path="/archiveMessage" component={MessageArchive}/>
+            <Route exact path="/connectError" component={ConnexionError}/>
 
     </Router>
 )
