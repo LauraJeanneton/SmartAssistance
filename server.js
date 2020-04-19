@@ -87,7 +87,7 @@ function inscrFunc(){
 
 
 function connectFunc(){
-    client.query('SELECT login from USERS where login=\'$1\';',['Laura'], function (err, result) {
+    client.query('SELECT login from USERS where login=$1;',['Laura'], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : "+ err);
         }
