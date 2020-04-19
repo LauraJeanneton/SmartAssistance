@@ -46,7 +46,7 @@ app.post('/inscription', function(req, res) {
         if (err) {
             console.log("C'est l'erreur : "+ err);
         }
-        console.log("Apres erreur : " + result.rows);
+        console.log("Apres erreur");
     });
     res.redirect('membre');
 });
