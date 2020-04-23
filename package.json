@@ -18,7 +18,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "pg": "latest",
-    "pg-promise": "latest"
+    "pg-promise": "latest",
+    "socket.io": "latest"
   },
   "scripts": {
     "server": "node server.js",
@@ -46,6 +47,6 @@
   },
   "devDependencies": {
     "pg-promise": "^10.5.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "latest"
   }
 }
