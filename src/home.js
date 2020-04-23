@@ -1,24 +1,32 @@
 import React from 'react'
-import Appli from './App'
 import './css/Connexion.css'
 class App extends React.Component {
     render() {
-        return (
-            <div>
-                <div id="CoButton">
-                    <ul>
-                        <li><a href="/connexion">Se Connecter</a></li>
-                        <li><a href="/inscription">S'inscrire</a></li>
-                    </ul>
+        if(this.props.name==""){
+            return (
+                <div>
+                    <div id="CoButton">
+                        <ul>
+                            <button onClick={this.props.onLogin}>Connexion</button>
+                            <button onClick={this.props.onLogin}>Inscription</button>
+                        </ul>
+                    </div>
                 </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <div id="CoButton">
+                        <ul>
+                            <button onClick={this.props.onMembre}>Mon compte : {this.props.name}</button>
+                        </ul>
+                    </div>
 
-                <React.StrictMode>
-                    <Appli />
-                </React.StrictMode>
+                </div>
+            )
+        }
 
-            </div>
-
-        )
     }
 }
 export default App

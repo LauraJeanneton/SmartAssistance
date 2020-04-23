@@ -5,20 +5,20 @@ class App extends React.Component {
         return (
             <div>
                 <div id={"menu"}>
-                    <a href="/" className={'home'}>Accueil</a>
-                    <a href="/" className={'deconnect'}>Se déconnecter</a>
+                    <button onClick={this.props.onQuit} className={'home'}>Accueil</button>
+                    <button onClick={this.props.onQuit} className={'deconnect'}>Se Déconnecter</button>
                 </div>
                 <div id={"menu"}>
                     <ul id="menu">
-                        <li><a href="/membre">Mon compte</a></li>
-                        <li><a href="/posts">Mes posts</a></li>
-                        <li><a href="/message" class={'actif'}>Messagerie</a></li>
+                        <li><button onClick={this.props.compte}>Mon Compte</button></li>
+                        <li><button onClick={this.props.onPosts} >Mes posts</button></li>
+                        <li><button onClick={this.props.onMessage} className={'actif'}>Mes Messages</button></li>
                     </ul>
                 </div>
                 <div className="vertical-menu">
-                    <a href="/newMessage" className="active">Nouveau message</a>
-                    <a href="/message">Conversations actives</a>
-                    <a href="/archiveMessage">Conversations archivées</a>
+                    <button onClick={this.props.onMessageNew}className={"active"}>Nouveau message</button>
+                    <button onClick={this.props.onMessage} >Conversations actives</button>
+                    <button onClick={this.props.onMessageArchive}>Conversations archivées</button>
                 </div>
             </div>
         )

@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "pg-promise": "^10.5.1"
+    "pg-promise": "^10.5.1",
+    "socket.io": "^2.3.0"
   }
 }

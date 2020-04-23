@@ -6,7 +6,7 @@
     display: inline-block ;
     position: static;
 }
-#menu a.home {
+#menu button.home {
     position: absolute;
     left: 20px;
     margin-top: -120px;
@@ -16,7 +16,7 @@
 }
 
 
-#menu a.deconnect {
+#menu button.deconnect {
     position: absolute;
     left: 20px;
     margin-top: -80px;
@@ -26,7 +26,7 @@
 }
 
 
-#menu a {
+#menu button {
     display: block;
     width: 110px;
     padding: 5px 0;
@@ -38,12 +38,12 @@
     text-align: center;
     border-radius: 5px;
 }
-#menu a.actif {
+#menu button.actif {
     background-color: #ffb46e ;
     color: black ;
     border-color: black ;
 }
-#menu a:hover{
+#menu button:hover{
     background-color: #ccc; /* Dark grey background on mouse-over */
 }
 
@@ -87,7 +87,7 @@
     width: 200px; /* Set a width if you like */
     position: absolute;
 }
-.vertical-menu a {
+.vertical-menu button {
     background-color: #4CAF50; /* Grey background color */
     color: black; /* Black text color */
     display: block; /* Make the links appear below each other */
@@ -95,20 +95,20 @@
     text-decoration: none; /* Remove underline from links */
     border: 1px solid black ;
 }
-.vertical-menu a:hover {
+.vertical-menu button:hover {
 
     background-color: #ccc; /* Dark grey background on mouse-over */
 }
-.vertical-menu a.active {
+.vertical-menu button.active {
     background-color: #ffb46e ;
     color: black ;
     border-color: black ;
 }
-.vertical-menu a.job {
+.vertical-menu button.job {
     background-color: #ffb46e; /* Add a green color to the "active/current" link */
     color: black;
 }
 
-.vertical-menu a.publier{
+.vertical-menu button.publier{
     background-color: #ccc;
 }

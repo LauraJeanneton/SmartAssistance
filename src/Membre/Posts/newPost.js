@@ -8,25 +8,32 @@ class App extends React.Component {
         return (
             <div>
                 <div id={"menu"}>
-                    <a href="/" className={'home'}>Accueil</a>
-                    <a href="/" className={'deconnect'}>Se déconnecter</a>
+                    <button onClick={this.props.onQuit} className={'home'}>Accueil</button>
+                    <button onClick={this.props.onQuit} className={'deconnect'}>Se Déconnecter</button>
                 </div>
                 <div id={"menu"}>
                     <ul id="menu">
-                        <li><a href="/membre">Mon compte</a></li>
-                        <li><a href="/posts" className={'actif'}>Mes posts</a></li>
-                        <li><a href="/message">Messagerie</a></li>
+                        <li>
+                            <button onClick={this.props.compte}>Mon Compte</button>
+                        </li>
+                        <li>
+                            <button onClick={this.props.onPosts} className={'actif'}>Mes posts</button>
+                        </li>
+                        <li>
+                            <button onClick={this.props.onMessage}>Mes Messages</button>
+                        </li>
                     </ul>
                 </div>
-                {/*A faire : Voir ses posts et agir dessus (ajout, supprimer, modifier)*/}
                 <div>
                     <div className="vertical-menu">
-                        <a href="/postsPost" className="active">Publier</a>
-                        <a href="/posts">Articles publiés</a>
-                        <a href="/draft">Brouillons</a>
-                        <a href="/archive">Articles archivés</a>
+                        <button onClick={this.props.onPostsForPublish} className="active">Publier</button>
+                        <button onClick={this.props.onPosts} >Articles publiés</button>
+                        <button onClick={this.props.onPostsDraft}>Brouillons</button>
+                        <button onClick={this.props.onPostsArchive}>Articles archivés</button>
                     </div>
                 </div>
+                {/*A faire : Voir ses posts et agir dessus (ajout, supprimer, modifier)*/}
+
                 <div id="post">
                     <form action="/posting" method="post">
                         <label> Titre : </label> <input type="text" size="30"/> <br/> <br/>

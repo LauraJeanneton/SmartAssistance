@@ -1,6 +1,7 @@
 const express  = require("express");
 var bodyParser = require("body-parser");
 const path = require('path');
+const io = require('socket.io');
 
 
 const app = express();
@@ -29,16 +30,22 @@ const logger = null;
 
 app.get('/', (req, res) => {
     return res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-
     next();
 });
 
 
 
 app.get('/connexion', function(req, res) {
-        var list = ["item1", "item2", "item3"];
-        res.json(list);
-        res.redirect('connexion');
+    const messages = [{name: 'bot', text: 'Bienvenue.'}];
+    io.on('connection', (client) => {
+    client.on('set-name', (name) => {
+        console.log('set-name ', name)
+        client.username = name
+        client.emit('add-messages', messages)
+    });
+});
+
+
 });
 
 
@@ -54,9 +61,15 @@ app.post('/connexion', function(req, res) {
     //     }
     //     else res.redirect('connexion');
     // });
+    const messages = [{name: 'bot', text: 'Bienvenue.'}];
+    io.on('connection', (client) => {
+        client.on('set-name', (name) => {
+            console.log('set-name ', name)
+            client.username = name
+            client.emit('add-messages', messages)
+        });
+    });
 
-
-    res.redirect('membre');
 });
 
 app.post('/inscription', function(req, res) {
@@ -98,6 +111,8 @@ app.get('/newMessage'),function (req,res) {
 app.get('/archiveMessage'),function (req,res) {
     res.redirect('archiveMessage');
 }
+
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 

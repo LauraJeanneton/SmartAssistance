@@ -27,22 +27,22 @@ class App extends React.Component {
         return (
             <div>
                 <div id={"menu"}>
-                    <a href="/" className={'home'}>Accueil</a>
-                    <a href="/" className={'deconnect'}>Se déconnecter</a>
+                    <button onClick={this.props.onQuit} className={'home'}>Accueil</button>
+                    <button onClick={this.props.onQuit} className={'deconnect'}>Se Déconnecter</button>
                 </div>
                 <div id={"menu"}>
                     <ul id="menu">
-                        <li><a href="/membre" >Mon compte</a></li>
-                        <li><a href="/posts" class={'actif'}>Mes posts</a></li>
-                        <li><a href="/message">Messagerie</a></li>
+                        <li><button onClick={this.props.compte}>Mon Compte</button></li>
+                        <li><button onClick={this.props.onPosts} class={'actif'}>Mes posts</button></li>
+                        <li><button onClick={this.props.onMessage}>Mes Messages</button></li>
                     </ul>
                 </div>
                 <div>
                     <div className="vertical-menu">
-                        <a href="/postsPost" className="publier">Publier</a>
-                        <a href="/posts" className="active">Articles publiés</a>
-                        <a href="/draft" >Brouillons</a>
-                        <a href="/archive">Articles archivés</a>
+                        <button onClick={this.props.onPostsForPublish} className="publier">Publier</button>
+                        <button onClick={this.props.onPosts} className="active">Articles publiés</button>
+                        <button onClick={this.props.onPostsDraft}>Brouillons</button>
+                        <button onClick={this.props.onPostsArchive}>Articles archivés</button>
                     </div>
                 </div>
 

@@ -1,44 +1,54 @@
-import React from 'react'
+import React from 'react';
 import '../css/membre.css'
-class App extends React.Component {
+import '../css/App.css'
+import openSocket from 'socket.io-client';
+const  socket = openSocket('http://localhost:3000');
 
-    getName(){
-        return "Laura";
+class Membre extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {messages: []}
+        this.submitMessage = this.submitMessage.bind(this);
+        this.addMessages = this.addMessages.bind(this);
+            socket.emit('set-name', this.props.name);
+        socket.on('add-messages', (messages) => this.addMessages(messages))
+      //  this.chat.onMessages(this.addMessages)
     }
 
-    getVille(){
-        return "Marseille";
+    addMessages(messages) {
+        this.setState((state, props) => ({
+            messages: state.messages.concat(messages)
+        }))
     }
 
-    getAge(){
-        return "21";
+    submitMessage(text) {
+        this.chat.sendMessage(text)
     }
+
 
     render() {
         return (
             <div>
                 <div id={"menu"}>
-                    <a href="/" className={'home'} alt="No image">Accueil</a>
-                    <a href="/" className={'deconnect'}alt="No image">Se déconnecter</a>
+                    <button onClick={this.props.goHome} className={'home'}>Accueil</button>
+                    <button onClick={this.props.onQuit}class={'deconnect'}>Se Déconnecter</button>
                 </div>
                 <div id={"menu"}>
                     <ul>
-                       <li><a href="/membre" class={'actif'}>Mon compte</a></li>
-                       <li><a href="/posts">Mes posts</a></li>
-                       <li><a href="/message">Messagerie</a></li>
+                        <li><button onClick={this.props.compte} class={'actif'}>Mon Compte</button></li>
+                        <li><button onClick={this.props.onPosts}>Mes posts</button></li>
+                        <li><button onClick={this.props.onMessage}>Mes Messages</button></li>
                     </ul>
                 </div>
-
                 <br/><br/>
                 <div id="utilisateur">
                     <h3>Utilisateur</h3>
-                    Pseudo : {this.getName()}
-                    <br/> Ville : {this.getVille()}
-                    <br/> Age : {this.getAge()}
+                    Pseudo : {this.props.name}
+                    <br/> Ville :
+                    <br/> Age :
                     <br/> Annonces passées :
-                    <img src={"../image/perso1.png"} alt="No image"/>
+                    <img src={"../image/perso1.png"} alt="No bb"/>
                 </div>
-
                 <br/><br/>
                 <div id="utilisateur">
                     <div id="param">
@@ -58,12 +68,13 @@ class App extends React.Component {
                     <br/><br/>Dans l'onglet "Mes posts", vous avez accès à toutes les annonces que vous avez publiées. Vous pouvez les consultées, les supprimées
                     et les modifiées. C'est également là que vous pourrez publier de nouvelles annonces. <br/><br/>
                     Enfin, dans l'onglet "Messagerie", vous pourrez gérer vos discussions avec les autres utilisaeurs de SmartAssistance. <br/>
-                    <img src={"../image/entete.jpg"} alt="No image"/>
+                    <img src={"../image/entete.jpg"} alt="No ddimage"/>
                 </div>
 
 
             </div>
-        )
+        );
     }
 }
-export default App
+
+export default Membre;
