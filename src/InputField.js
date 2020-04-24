@@ -10,7 +10,8 @@ class InputField extends React.Component {
     }
 
     handleChange(event) {
-        if(this.props.onChange) this.props.onChange(event.target.value)
+        this.props.onChange(event.target.value)
+        this.props.setName(event.target.value)
         this.setState({value: event.target.value})
     }
 
@@ -23,7 +24,9 @@ class InputField extends React.Component {
     render() {
         return (<form onSubmit={this.handleSubmit}>
             <label>{this.props.label} </label>
-            <input type="text" id={"pseudo"} name={"pseudo"} onChange={this.handleChange} value={this.state.value} autoFocus={this.props.autoFocus} />
+            <input type="text"  onChange={this.handleChange} value={this.state.value} autoFocus={this.props.autoFocus} setName={this.state.value}/>
+
+
         </form>)
     }
 }

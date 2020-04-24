@@ -109,7 +109,7 @@ class App extends React.Component {
                         <a href="/">Link 3</a>
                         <a href="/">Link 4</a>
                     </div>
-                    <Connexion onNameChange={this.setName} onLogin={this.membreFunc} />
+                    <Connexion onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} />
 
                 </div>
 

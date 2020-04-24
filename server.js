@@ -50,7 +50,7 @@ app.get('/connexion', function(req, res) {
 
 
 app.post('/connexion', function(req, res) {
-    console.log("Pseudos :"+req.body.pseudo);
+    console.log("Pseudo :"+req.body.pseudo);
     console.log("Password :"+ req.body.password);
     client.query('SELECT login from USERS where login=$1 and password = md5($2);',[req.body.pseudo,req.body.password], function (err, result) {
         if (err) {
@@ -61,7 +61,7 @@ app.post('/connexion', function(req, res) {
         }
         else res.redirect('connexion');
     });
-    const messages = [{name: 'bot', text: 'Bienvenue.'}];
+    // const messages = [{name: 'bot', text: 'Bienvenue.'}];
 
 
 });
