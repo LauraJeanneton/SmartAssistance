@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import './css/index.css'
 import {BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
+import Membre from './Membre/membre';
+import Connexion from './Connexion';
 
 
 
@@ -14,9 +16,9 @@ const routing = (
             <App></App>
         {/*<Route exact path="/" component={Home}/>*/}
         {/*<Route exact path="/home" component={Home}/>*/}
-        {/*<Route path="/connexion" component={Connexion}/>*/}
+        <Route path="/connexion" component={Connexion}/>
         {/*<Route exact path="/inscription" component={Inscription}/>*/}
-        {/*/!*<Route exact path="/membre" component={Membre}/>*!/*/}
+        <Route exact path="/membre" component={Membre}/>
         {/*/!*<Route exact path="/posts" component={Posts}/>*!/*/}
         {/*<Route exact path="/draft" component={Draft}/>*/}
         {/*<Route exact path="/archive" component={Archive}/>*/}
