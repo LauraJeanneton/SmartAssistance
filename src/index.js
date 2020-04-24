@@ -6,19 +6,28 @@ import App from './App';
 import Membre from './Membre/membre';
 import Connexion from './Connexion';
 
+constructor() {
+    super()
+    this.state = {name: ""}
+    this.setName = this.setName.bind(this)
+}
 
+
+setName(name) {
+    this.setState({name: name})
+}
 
 const routing = (
     <Router>
         <div id='title'>Smart Assistance <br/>
             {/*<img src={"image/frise.jpg"}/>*/}
         </div>
-            <App></App>
+            <App onChange={this.state.name}></App>
         {/*<Route exact path="/" component={Home}/>*/}
         {/*<Route exact path="/home" component={Home}/>*/}
         {/*<Route path="/connexion" component={Connexion}/>*/}
         {/*<Route exact path="/inscription" component={Inscription}/>*/}
-        {/*<Route exact path="/membre" component={Membre}/>*/}
+        <Route exact path="/membre" component={Membre} OnChange={this.setName('membre')} />
         {/*/!*<Route exact path="/posts" component={Posts}/>*!/*/}
         {/*<Route exact path="/draft" component={Draft}/>*/}
         {/*<Route exact path="/archive" component={Archive}/>*/}

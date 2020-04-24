@@ -11,9 +11,13 @@ import MessageArchive from './Membre/Messagerie/messageArchive';
 import NouveauMessage from './Membre/Messagerie/newMessage';
 
 class App extends React.Component {
+
+
     constructor() {
         super()
         this.state = {name: "", current: "home"}
+
+
 
         this.returnHome = this.returnHome.bind(this)
         this.loginFunc = this.loginFunc.bind(this)
