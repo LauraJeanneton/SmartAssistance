@@ -1,9 +1,7 @@
-import Appli from './src/App';
 const express  = require("express");
 var bodyParser = require("body-parser");
 const path = require('path');
 const io = require('socket.io');
-
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -58,15 +56,12 @@ app.post('/connexion', function(req, res) {
             console.log("C'est l'erreur : " + err);
         }
         if (result.rows[0]!=undefined) {
-            res.redirect('membre');
-            this.setState({current: "membre"})
+
         }
         else {
             res.redirect('connexion');
-            this.setState({current: "login"})
         }
     });
-
     // const messages = [{name: 'bot', text: 'Bienvenue.'}];
 
 

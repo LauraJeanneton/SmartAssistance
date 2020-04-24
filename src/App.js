@@ -16,9 +16,6 @@ class App extends React.Component {
     constructor() {
         super()
         this.state = {name: "", current: "home"}
-
-
-
         this.returnHome = this.returnHome.bind(this)
         this.loginFunc = this.loginFunc.bind(this)
         this.membreFunc = this.membreFunc.bind(this)
