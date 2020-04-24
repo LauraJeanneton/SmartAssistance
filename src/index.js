@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './css/index.css'
-import {BrowserRouter as Router } from 'react-router-dom'
+import {Route, BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
 import Membre from './Membre/membre';
 import Connexion from './Connexion';
