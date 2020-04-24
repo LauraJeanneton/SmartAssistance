@@ -1,3 +1,4 @@
+import Appli from './src/App';
 const express  = require("express");
 var bodyParser = require("body-parser");
 const path = require('path');
@@ -58,9 +59,14 @@ app.post('/connexion', function(req, res) {
         }
         if (result.rows[0]!=undefined) {
             res.redirect('membre');
+            this.setState({current: "membre"})
         }
-        else res.redirect('connexion');
+        else {
+            res.redirect('connexion');
+            this.setState({current: "login"})
+        }
     });
+
     // const messages = [{name: 'bot', text: 'Bienvenue.'}];
 
 
