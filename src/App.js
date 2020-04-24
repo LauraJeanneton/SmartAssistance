@@ -77,11 +77,11 @@ class App extends React.Component {
     }
 
     render() {
-
         if(this.state.current==="home"){
                 return (
                     <div>
                         <Home onLogin={this.loginFunc} name={this.state.name} onMembre={this.membreFunc}/>
+                        Tu es dans Home
                         <div className="vertical-menu">
                             <a href="/" className="active">Home</a>
                             <a href="/indexJob" className="job">Dernier job</a>
@@ -99,9 +99,9 @@ class App extends React.Component {
 
     else if(this.state.current === "login")
             return (
-
                 <div>
                     <div className="vertical-menu">
+                        Tu es dans Login
                         <a href="/" className="active">Home</a>
                         <a href="/indexJob" className="job">Dernier job</a>
                         <a href="/">Link 1</a>
@@ -110,11 +110,11 @@ class App extends React.Component {
                         <a href="/">Link 4</a>
                     </div>
                     <Connexion onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} />
-
                 </div>
 
             )
         else if(this.state.current === "membre"){
+            Tu es dans membre
             return <Membre name={this.state.name} onPosts={this.postsFunc} goHome={this.returnHome} onQuit={this.quittSession}  compte={this.membreFunc} onMessage={this.messageFunc}/>
         }
 
