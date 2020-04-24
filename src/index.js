@@ -18,7 +18,7 @@ const routing = (
         {/*<Route exact path="/home" component={Home}/>*/}
         {/*<Route path="/connexion" component={Connexion}/>*/}
         {/*<Route exact path="/inscription" component={Inscription}/>*/}
-        <Route exact path="/membre" component={Membre}/>
+        {/*<Route exact path="/membre" component={Membre}/>*/}
         {/*/!*<Route exact path="/posts" component={Posts}/>*!/*/}
         {/*<Route exact path="/draft" component={Draft}/>*/}
         {/*<Route exact path="/archive" component={Archive}/>*/}
