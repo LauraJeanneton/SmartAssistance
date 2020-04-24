@@ -62,13 +62,7 @@ app.post('/connexion', function(req, res) {
         else res.redirect('connexion');
     });
     const messages = [{name: 'bot', text: 'Bienvenue.'}];
-    io.on('connection', (client) => {
-        client.on('set-name', (name) => {
-            console.log('set-name ', name)
-            client.username = name
-            client.emit('add-messages', messages)
-        });
-    });
+    
 
 });
 
