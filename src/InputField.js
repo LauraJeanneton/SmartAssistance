@@ -23,7 +23,7 @@ class InputField extends React.Component {
     render() {
         return (<form onSubmit={this.handleSubmit}>
             <label>{this.props.label} </label>
-            <input type="text" onChange={this.handleChange} value={this.state.value} autoFocus={this.props.autoFocus} />
+            <input type="text" id={"pseudo"} name={"pseudo"} onChange={this.handleChange} value={this.state.value} autoFocus={this.props.autoFocus} />
         </form>)
     }
 }
