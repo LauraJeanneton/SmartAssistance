@@ -10,7 +10,7 @@ class Connexion extends React.Component {
 
                 <h1> Connexion </h1>
                 <form action="/connexion" method="post">
-                    <InputField label="Nom" onChange={this.props.onNameChange} onSubmit={this.props.onLogin} autoFocus />
+                    <InputField label="pseudo" onChange={this.props.onNameChange} onSubmit={this.props.onLogin} autoFocus />
                     <br/>
                     <label> Mot de passe :</label>
                     <input type={"text"} name={"password"} id={"password"}/>

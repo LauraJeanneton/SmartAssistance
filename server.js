@@ -62,7 +62,7 @@ app.post('/connexion', function(req, res) {
         else res.redirect('connexion');
     });
     const messages = [{name: 'bot', text: 'Bienvenue.'}];
-    
+
 
 });
 
