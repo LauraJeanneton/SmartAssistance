@@ -41,7 +41,7 @@ class App extends React.Component {
                     <label>Votre age:</label>
                     <input type={"number"} id={"age"} name={"age"}/>
                     <br/><br/>
-                    <input type={"submit"} value={"S'inscrire"}/>
+                    <button onClick={this.props.onLogin}>S'inscrire</button>
                 </form>
             </div>
             </div>
