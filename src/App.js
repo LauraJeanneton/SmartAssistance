@@ -8,7 +8,6 @@ import NewPost from "./Membre/Posts/newPost";
 import Draft from "./Membre/Posts/draft";
 import Archive from "./Membre/Posts/archive";
 import Message from './Membre/Messagerie/messages'
-import MessageArchive from './Membre/Messagerie/messageArchive';
 import NouveauMessage from './Membre/Messagerie/newMessage';
 
 class App extends React.Component {
@@ -25,7 +24,6 @@ class App extends React.Component {
         this.postsForPublish=this.postsForPublish.bind(this)
         this.postsDraft=this.postsDraft.bind(this)
         this.postsArchive=this.postsArchive.bind(this)
-        this.messagesArchives=this.messagesArchives.bind(this)
         this.messagesNew=this.messagesNew.bind(this)
         this.quittSession=this.quittSession.bind(this)
         this.inscrFunc=this.inscrFunc.bind(this)
@@ -70,9 +68,6 @@ class App extends React.Component {
         this.setState({current : "postsArchive"});
     }
 
-    messagesArchives(){
-        this.setState({current : "messagesArchive"});
-    }
 
     messagesNew(){
         this.setState({current : "messagesNew"});
@@ -113,7 +108,8 @@ class App extends React.Component {
 
 
         else if(this.state.current === "membre"){
-            return <Membre name={this.state.name} onPosts={this.postsFunc} goHome={this.returnHome} onQuit={this.quittSession}  compte={this.membreFunc} onMessage={this.messageFunc}/>
+            return <Membre name={this.state.name} onPosts={this.postsFunc} goHome={this.returnHome} onQuit={this.quittSession}
+                           compte={this.membreFunc} onMessage={this.messageFunc}/>
         }
 
         else if(this.state.current ==="posts"){
@@ -134,18 +130,15 @@ class App extends React.Component {
             return <Archive name={this.state.name} onPosts={this.postsFunc} onQuit={this.returnHome}  compte={this.membreFunc}onMessage={this.messageFunc}
                             onPostsForPublish={this.postsForPublish} onPostsDraft={this.postsDraft} onPostsArchive={this.postsArchive}/>
         }
-        else if(this.state.current ==="messagesArchive"){
-            return <MessageArchive name={this.state.name} onPosts={this.postsFunc} onQuit={this.returnHome}  compte={this.membreFunc} onMessage={this.messageFunc}
-                                   onMessageNew={this.messagesNew} onMessageArchive={this.messagesArchives} />
-        }
+
         else if(this.state.current ==="messagesNew"){
             return <NouveauMessage name={this.state.name} onPosts={this.postsFunc} onQuit={this.returnHome}  compte={this.membreFunc}onMessage={this.messageFunc}
-                                   onMessageNew={this.messagesNew} onMessageArchive={this.messagesArchives} />
+                                   onMessageNew={this.messagesNew} />
         }
 
         if(this.state.current ==="message"){
             return <Message name={this.state.name} onPosts={this.postsFunc} onQuit={this.returnHome}  compte={this.membreFunc}onMessage={this.messageFunc}
-                            onMessageNew={this.messagesNew} onMessageArchive={this.messagesArchives} />
+                            onMessageNew={this.messagesNew} />
         }
 
 

@@ -50,16 +50,6 @@ class Membre extends React.Component {
                     <img src={"../image/perso1.png"} alt="No bb"/>
                 </div>
                 <br/><br/>
-                <div id="utilisateur">
-                    <div id="param">
-                        <h3>Paramètre</h3>
-                        <button>Réinitialiser le mot de passe</button>  <button>Changer mon image de profil</button> <br/>
-                        <button>Changer de login</button>
-                        <button>Changer ma ville</button>
-                        <button>Changer mon age</button> <br/>
-                    </div>
-
-                </div>
 
                 <div id="text">
                     Merci de faire confiance à mon application d'entraide SmartAssistance. Grâce à elle, vous pouvez faire de bonnes actions ! <br/><br/>

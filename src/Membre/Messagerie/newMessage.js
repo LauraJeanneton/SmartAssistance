@@ -18,8 +18,7 @@ class App extends React.Component {
                 </div>
                 <div className="vertical-menu">
                     <button onClick={this.props.onMessageNew}className={"active"}>Nouveau message</button>
-                    <button onClick={this.props.onMessage} >Conversations actives</button>
-                    <button onClick={this.props.onMessageArchive}>Conversations archivées</button>
+                    <button onClick={this.props.onMessage} >Conversations </button>
                 </div>
                 <div id="post">
                     <form action="/posting" method="post">

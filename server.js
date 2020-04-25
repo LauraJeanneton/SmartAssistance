@@ -50,7 +50,6 @@ app.post('/connexion', function(req, res) {
             res.redirect('connexion');
         }
     });
-    // const messages = [{name: 'bot', text: 'Bienvenue.'}];
     return;
 });
 
@@ -104,13 +103,34 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 
-function inscrFunc(){
-    client.query('INSERT INTO USERS (login,name,city,age,password)VALUES (\'Laura\',\'Laura\',\'Marseille\',25,md5(\'test\'));', function (err, result) {
+function requetes(){
+    const login = req.body.pseudo;
+    const nameUser = req.body.name;
+    const city =req.body.city;
+    const age =req.body.age;
+    const password = req.body.password;
+    client.query('select city from users where login = $1;',[login], function (err, result) {
         if (err) {
-            console.log("C'est l'erreur : "+ err);
+            console.log("C'est l'erreur : " + err);
         }
-        console.log("Apres erreur");
     });
+    client.query('select age from users where login = $1;',[login], function (err, result) {
+        if (err) {
+            console.log("C'est l'erreur : " + err);
+        }
+    });
+    client.query('select count(a.idArticle) NbPost from article a, users u where u.login = $1 and u.id=a.id;',[login], function (err, result) {
+        if (err) {
+            console.log("C'est l'erreur : " + err);
+        }
+    });
+    //insert into article(id,title,text,status,date) values($1,$2,$3,$4,now());
+    //select a.title,a.text from article a, users u where u.id=a.id and u.login=$1 and a.status='post';
+    //select a.title,a.text from article a, users u where u.id=a.id and u.login=$1 and a.status='draft';
+    //select a.title,a.text from article a, users u where u.id=a.id and u.login=$1 and a.status='archive';
+    //insert into messaging values($1,$2,$3,now());
+   // select distinct m.idTo, m.text from messaging m ,users u, users u2 where u.login=$1 and u2.login=$2 and ((u.id=m.idFrom and u2.id=m.idTo)or (u2.id=m.idFrom and u.id=m.idTo));
+    //select u.login, a.title,a.text ,a.date from article a, users u where u.id=a.id order by  date DESC;
 }
 
 

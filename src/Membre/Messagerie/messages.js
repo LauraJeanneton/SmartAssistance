@@ -12,7 +12,6 @@ class App extends React.Component {
                     <li><h3 id="titre">Correspondant {number}</h3></li>
                     <li><button onClick={this.props.onMessage} className={"active"}>Voir message</button></li>
                     <li><button onClick={this.props.onMessage} className={"active"}>Supprimer</button></li>
-                    <li><button onClick={this.props.onMessage} className={"active"}>Archive</button></li>
                 </ul>
             </div>
         </div>)
@@ -33,8 +32,7 @@ class App extends React.Component {
                 </div>
                 <div className="vertical-menu">
                     <button onClick={this.props.onMessageNew}>Nouveau message</button>
-                    <button onClick={this.props.onMessage} className={"active"}>Conversations actives</button>
-                    <button onClick={this.props.onMessageArchive}>Conversations archivées</button>
+                    <button onClick={this.props.onMessage} className={"active"}>Conversations</button>
                 </div>
                 {this.getMessage(1)}{this.getMessage(2)}{this.getMessage(3)}{this.getMessage(4)}
             </div>
