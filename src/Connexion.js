@@ -17,7 +17,11 @@ class Connexion extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div><div id="CoButton">
+            <ul>
+                <button onClick={this.props.onQuit} className={"connect"}>Accueil</button>
+            </ul>
+        </div>
             <div id={"Connect"}>
 
                 <h1> Connexion </h1>

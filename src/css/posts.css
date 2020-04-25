@@ -17,7 +17,7 @@
     margin-left: 50px;
     display: inline-block ;
 }
-#gestion a {
+#gestion button {
     display: block;
     width: 110px;
     padding: 5px 0;

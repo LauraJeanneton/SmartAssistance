@@ -88,14 +88,7 @@ class App extends React.Component {
                 return (
                     <div>
                         <Home onLogin={this.loginFunc} onInscription={this.inscrFunc} name={this.state.name} onMembre={this.membreFunc}/>
-                        <div className="vertical-menu">
-                            <a href="/" className="active">Home</a>
-                            <a href="/indexJob" className="job">Dernier job</a>
-                            <a href="/">Link 1</a>
-                            <a href="/">Link 2</a>
-                            <a href="/">Link 3</a>
-                            <a href="/">Link 4</a>
-                        </div>
+
                     </div>
                 )
         }
@@ -104,15 +97,8 @@ class App extends React.Component {
     else if(this.state.current === "login")
             return (
                 <div>
-                    <div className="vertical-menu">
-                        <a href="/" className="active">Home</a>
-                        <a href="/indexJob" className="job">Dernier job</a>
-                        <a href="/">Link 1</a>
-                        <a href="/">Link 2</a>
-                        <a href="/">Link 3</a>
-                        <a href="/">Link 4</a>
-                    </div>
-                    <Connexion onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} />
+
+                    <Connexion onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} onQuit={this.quittSession}/>
                 </div>
 
             )
@@ -120,15 +106,7 @@ class App extends React.Component {
         else if(this.state.current === "inscription")
             return (
                 <div>
-                    <div className="vertical-menu">
-                        <a href="/" className="active">Home</a>
-                        <a href="/indexJob" className="job">Dernier job</a>
-                        <a href="/">Link 1</a>
-                        <a href="/">Link 2</a>
-                        <a href="/">Link 3</a>
-                        <a href="/">Link 4</a>
-                    </div>
-                    <Inscription onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} />
+                    <Inscription onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} onQuit={this.quittSession}/>
                 </div>
 
             )

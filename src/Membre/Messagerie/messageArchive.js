@@ -1,6 +1,23 @@
 import React from 'react'
 import '../../css/membre.css'
+import '../../css/posts.css'
 class App extends React.Component {
+
+    getMessage(number){
+        return(<div id="article">
+
+
+            <div id="gestion">
+                <ul>
+                    <li><h3 id="titre">Correspondant {number}</h3></li>
+                    <li><button onClick={this.props.onMessageArchive}>Voir la conversation</button></li>
+                    <li><button onClick={this.props.onMessageArchive}>Supprimer</button></li>
+                </ul>
+            </div>
+        </div>)
+    }
+
+
     render() {
         return (
             <div>
@@ -20,6 +37,7 @@ class App extends React.Component {
                     <button onClick={this.props.onMessage} >Conversations actives</button>
                     <button onClick={this.props.onMessageArchive}className={"active"}>Conversations archivées</button>
                 </div>
+                {this.getMessage(1)}{this.getMessage(2)}{this.getMessage(3)}{this.getMessage(4)}
             </div>
         )
     }

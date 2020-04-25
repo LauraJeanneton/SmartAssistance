@@ -20,14 +20,16 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <React.StrictMode>
-                    <Appli />
-                </React.StrictMode>
+                <div id="CoButton">
+                    <ul>
+                        <button onClick={this.props.onQuit} className={"connect"}>Accueil</button>
+                    </ul>
+                </div>
             <div id={"Connect"}>
                 <h1> Inscription </h1>
                 <form action="/inscription" method="post" >
                     <InputField label={"Pseudo"} onChange={this.props.onNameChange} onSubmit={this.props.onLogin} setName={this.setName} autoFocus />
-                    <br/><br/>
+                    <br/>
                     <input type={"text"} name={"pseudo"} id={"pseudo"}  defaultValue={this.state.name} hidden={true}/>
                     <label>Prenom d'usage :</label>
                     <input type={"text"} id={"name"} name={"name"}/>

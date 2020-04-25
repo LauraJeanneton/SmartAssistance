@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../css/membre.css'
+import '../../css/posts.css'
 class App extends React.Component {
     render() {
         return (
@@ -19,6 +20,15 @@ class App extends React.Component {
                     <button onClick={this.props.onMessageNew}className={"active"}>Nouveau message</button>
                     <button onClick={this.props.onMessage} >Conversations actives</button>
                     <button onClick={this.props.onMessageArchive}>Conversations archivées</button>
+                </div>
+                <div id="post">
+                    <form action="/posting" method="post">
+                        <label> Nom du destinataire : </label> <input type="text" size="30"/> <br/> <br/>
+                        <label> Message : </label> <br/><br/><textarea rows="15" cols="100"></textarea>
+                    </form>
+                    <ul id="gestion">
+                        <button onClick={this.props.onMessage}>Envoyer</button>
+                    </ul>
                 </div>
             </div>
         )

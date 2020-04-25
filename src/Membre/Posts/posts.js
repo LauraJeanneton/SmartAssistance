@@ -13,9 +13,9 @@ class App extends React.Component {
             </p>
             <div id="gestion">
                 <ul>
-                    <li><a href="/postsModif">Modifier</a></li>
-                    <li><a href="/postsSuppr">Supprimer</a></li>
-                    <li><a href="/postsArch">Archiver</a></li>
+                    <li><button onClick={this.props.onPosts} className={"active"}>Publier</button></li>
+                    <li><button onClick={this.props.onPosts} className={"active"}>Supprimer</button></li>
+                    <li><button onClick={this.props.onPosts} className={"active"}>Archiver</button></li>
                 </ul>
             </div>
         </div>)

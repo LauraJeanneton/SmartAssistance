@@ -39,9 +39,9 @@ class App extends React.Component {
                         <label> Titre : </label> <input type="text" size="30"/> <br/> <br/>
                         <label> Contenu de l'article : </label> <br/><br/><textarea rows="15" cols="100"></textarea>
                     </form>
-                    <ul id="gestionPost">
-                        <li><a href="/posts">Publier</a></li>
-                        <li><a href="/message">Brouillon</a></li>
+                    <ul id="gestion">
+                        <li><button onClick={this.props.onPosts} >Publier</button></li>
+                        <li><button onClick={this.props.onPosts} >Brouillon</button></li>
                     </ul>
                 </div>
             </div>
