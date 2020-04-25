@@ -64,8 +64,6 @@ app.post('/inscription', function(req, res) {
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
-        if (result.rows[0]!=undefined){}
-        else res.redirect('inscription');
     });
     return;
 });
