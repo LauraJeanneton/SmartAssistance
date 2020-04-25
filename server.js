@@ -26,7 +26,7 @@ client.connect();
 
 const logger = null;
 
-app.get('/', (req, ) => {res
+app.get('/', (req, ) => {
     return res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
     next();
 });
