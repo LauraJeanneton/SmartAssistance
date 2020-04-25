@@ -8,7 +8,7 @@ class App extends React.Component {
                     <div id="CoButton">
                         <ul>
                             <button onClick={this.props.onLogin} className={"connect"}>Connexion</button>
-                            <button onClick={this.props.onLogin} className={"inscription"}>Inscription</button>
+                            <button onClick={this.props.onInscription} className={"inscription"}>Inscription</button>
                         </ul>
                     </div>
                 </div>

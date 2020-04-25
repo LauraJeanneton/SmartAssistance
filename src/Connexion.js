@@ -28,10 +28,6 @@ class Connexion extends React.Component {
                     <input type={"text"} name={"pseudo"} id={"pseudo"}  defaultValue={this.state.name} hidden={true}/>
                     <input type={"text"} name={"password"} id={"password"}/>
                     <br/><br/>
-                    Name : {this.state.name}
-
-
-
                     <button onClick={this.props.onLogin}>Rejoindre</button>
 
                 </form>

@@ -1,7 +1,22 @@
 import React from 'react'
 import Appli from './App'
 import './css/Connexion.css'
+import InputField from "./InputField";
+
 class App extends React.Component {
+
+    constructor() {
+        super()
+        this.state = {name: ""}
+        this.setName = this.setName.bind(this)
+    }
+
+
+    setName(name) {
+        this.setState({name: name})
+    }
+
+
     render() {
         return (
             <div>
@@ -10,10 +25,10 @@ class App extends React.Component {
                 </React.StrictMode>
             <div id={"Connect"}>
                 <h1> Inscription </h1>
-                <form method={"post"}>
-                    <label> Nom d'utilisateur :</label>
-                    <input type={'text'} name={"pseudo"}/>
+                <form action="/inscription" method="post" >
+                    <InputField label={"Pseudo"} onChange={this.props.onNameChange} onSubmit={this.props.onLogin} setName={this.setName} autoFocus />
                     <br/><br/>
+                    <input type={"text"} name={"pseudo"} id={"pseudo"}  defaultValue={this.state.name} hidden={true}/>
                     <label>Prenom d'usage :</label>
                     <input type={"text"} id={"name"}/>
                     <br/><br/>

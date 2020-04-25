@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './home';
 import Connexion from "./Connexion";
+import Inscription from './inscription'
 import Membre from './Membre/membre'
 import Posts from './Membre/Posts/posts'
 import NewPost from "./Membre/Posts/newPost";
@@ -27,11 +28,16 @@ class App extends React.Component {
         this.messagesArchives=this.messagesArchives.bind(this)
         this.messagesNew=this.messagesNew.bind(this)
         this.quittSession=this.quittSession.bind(this)
+        this.inscrFunc=this.inscrFunc.bind(this)
         this.setName = this.setName.bind(this)
     }
 
     loginFunc() {
         this.setState({current: "login"})
+    }
+
+    inscrFunc(){
+        this.setState({current: "inscription"})
     }
 
     membreFunc() {
@@ -81,7 +87,7 @@ class App extends React.Component {
         if(this.state.current==="home"){
                 return (
                     <div>
-                        <Home onLogin={this.loginFunc} name={this.state.name} onMembre={this.membreFunc}/>
+                        <Home onLogin={this.loginFunc} onInscription={this.inscrFunc} name={this.state.name} onMembre={this.membreFunc}/>
                         <div className="vertical-menu">
                             <a href="/" className="active">Home</a>
                             <a href="/indexJob" className="job">Dernier job</a>
@@ -93,8 +99,6 @@ class App extends React.Component {
                     </div>
                 )
         }
-
-
 
 
     else if(this.state.current === "login")
@@ -112,6 +116,24 @@ class App extends React.Component {
                 </div>
 
             )
+
+        else if(this.state.current === "inscription")
+            return (
+                <div>
+                    <div className="vertical-menu">
+                        <a href="/" className="active">Home</a>
+                        <a href="/indexJob" className="job">Dernier job</a>
+                        <a href="/">Link 1</a>
+                        <a href="/">Link 2</a>
+                        <a href="/">Link 3</a>
+                        <a href="/">Link 4</a>
+                    </div>
+                    <Inscription onNameChange={this.setName} getName={this.state.name} onLogin={this.membreFunc} />
+                </div>
+
+            )
+
+
         else if(this.state.current === "membre"){
             return <Membre name={this.state.name} onPosts={this.postsFunc} goHome={this.returnHome} onQuit={this.quittSession}  compte={this.membreFunc} onMessage={this.messageFunc}/>
         }

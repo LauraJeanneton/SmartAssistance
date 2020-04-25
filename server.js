@@ -1,7 +1,6 @@
 const express  = require("express");
 var bodyParser = require("body-parser");
 const path = require('path');
-const io = require('socket.io');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -18,12 +17,12 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 
-const { Client } = require('pg');
-const connectionString = 'postgres://mjbrgpfqdvtdps:04427e20360d65ea15557b5ea17c995978828f3b11232a67e517589d9a95280f@ec2-18-233-137-77.compute-1.amazonaws.com:5432/d6o9rau53ul8j8';
-const client = new Client({
-    connectionString: connectionString
-});
-client.connect();
+// const { Client } = require('pg');
+// const connectionString = 'postgres://mjbrgpfqdvtdps:04427e20360d65ea15557b5ea17c995978828f3b11232a67e517589d9a95280f@ec2-18-233-137-77.compute-1.amazonaws.com:5432/d6o9rau53ul8j8';
+// const client = new Client({
+//     connectionString: connectionString
+// });
+// client.connect();
 
 const logger = null;
 
@@ -32,43 +31,36 @@ app.get('/', (req, res) => {
     next();
 });
 
-
-
 app.get('/connexion', function(req, res) {
     const messages = [{name: 'bot', text: 'Bienvenue.'}];
-    io.on('connection', (client) => {
-    client.on('set-name', (name) => {
-        console.log('set-name ', name)
-        client.username = name
-        client.emit('add-messages', messages)
-    });
-});
-
 
 });
 
 
 app.post('/connexion', function(req, res) {
-    console.log("Pseudo :"+req.body.pseudo);
-    console.log("Password :"+ req.body.password);
-    client.query('SELECT login from USERS where login=$1 and password = md5($2);',[req.body.pseudo,req.body.password], function (err, result) {
-        if (err) {
-            console.log("C'est l'erreur : " + err);
-        }
-        if (result.rows[0]!=undefined) {
-
-        }
-        else {
-            res.redirect('connexion');
-        }
-    });
+    console.log("Pseudo :" + req.body.pseudo);
+    console.log("Password :" + req.body.password);
+    // client.query('SELECT login from USERS where login=$1 and password = md5($2);',[req.body.pseudo,req.body.password], function (err, result) {
+    //     if (err) {
+    //         console.log("C'est l'erreur : " + err);
+    //     }
+    //     if (result.rows[0]!=undefined) {
+    //     }
+    //     else {
+    //         res.redirect('connexion');
+    //     }
+    // });
     // const messages = [{name: 'bot', text: 'Bienvenue.'}];
-
-
+    return;
 });
 
 app.post('/inscription', function(req, res) {
-    client.query('SELECT login from USERS where login=$1;',['machin'], function (err, result) {
+    const login = req.body.pseudo;
+    const name = req.body.name;
+    const city =req.body.city;
+    const age =req.body.age;
+    const password = req.body.password;
+    client.query('insert into users(login,name,city,age,password) values($1,$2,$3,$4,md5($5));',[login,name,city,age,password], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
