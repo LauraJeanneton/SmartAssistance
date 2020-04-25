@@ -30,16 +30,16 @@ class App extends React.Component {
                     <br/><br/>
                     <input type={"text"} name={"pseudo"} id={"pseudo"}  defaultValue={this.state.name} hidden={true}/>
                     <label>Prenom d'usage :</label>
-                    <input type={"text"} id={"name"}/>
+                    <input type={"text"} id={"name"} name={"name"}/>
                     <br/><br/>
                     <label> Mot de passe :</label>
-                    <input type={"text"} name={"password"}/>
+                    <input type={"text"} name={"password"} name={"password"}/>
                     <br/><br/>
                     <label>Votre ville:</label>
-                    <input type={"text"} id={"city"}/>
+                    <input type={"text"} id={"city"} name={"city"}/>
                     <br/><br/>
                     <label>Votre age:</label>
-                    <input type={"number"} id={"age"}/>
+                    <input type={"number"} id={"age"} name={"age"}/>
                     <br/><br/>
                     <input type={"submit"} value={"S'inscrire"}/>
                 </form>

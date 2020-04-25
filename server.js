@@ -56,11 +56,11 @@ app.post('/connexion', function(req, res) {
 
 app.post('/inscription', function(req, res) {
     const login = req.body.pseudo;
-    const name = req.body.name;
+    const nameUser = req.body.name;
     const city =req.body.city;
     const age =req.body.age;
     const password = req.body.password;
-    client.query('insert into users(login,name,city,age,password) values($1,$2,$3,$4,md5($5));',[login,name,city,age,password], function (err, result) {
+    client.query('insert into users(login,name,city,age,password) values($1,$2,$3,$4,md5($5));',[login,nameUser,city,age,password], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
