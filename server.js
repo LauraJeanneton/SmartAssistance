@@ -22,11 +22,11 @@ const connectionString = 'postgres://mjbrgpfqdvtdps:04427e20360d65ea15557b5ea17c
 const client = new Client({
     connectionString: connectionString
 });
-
+client.connect();
 
 const logger = null;
 
-app.get('/', (req, res) => {
+app.get('/', (req, ) => {res
     return res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
     next();
 });
@@ -40,7 +40,6 @@ app.get('/connexion', function(req, res) {
 app.post('/connexion', function(req, res) {
     console.log("Pseudo :" + req.body.pseudo);
     console.log("Password :" + req.body.password);
-    client.connect();
     client.query('SELECT login from USERS where login=$1 and password = md5($2);',[req.body.pseudo,req.body.password], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : " + err);
@@ -50,7 +49,6 @@ app.post('/connexion', function(req, res) {
         else {
             res.redirect('connexion');
         }
-        client.disconnect();
     });
     // const messages = [{name: 'bot', text: 'Bienvenue.'}];
     return;
@@ -62,12 +60,11 @@ app.post('/inscription', function(req, res) {
     const city =req.body.city;
     const age =req.body.age;
     const password = req.body.password;
-    client.connect();
+
     client.query('insert into users(login,name,city,age,password) values($1,$2,$3,$4,md5($5));',[login,nameUser,city,age,password], function (err, result) {
         if (err) {
             console.log("C'est l'erreur : " + err);
         }
-        client.disconnect();
     });
     return;
 });
