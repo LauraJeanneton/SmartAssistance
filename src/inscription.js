@@ -35,7 +35,7 @@ class App extends React.Component {
                     <input type={"text"} id={"name"} name={"name"}/>
                     <br/><br/>
                     <label> Mot de passe :</label>
-                    <input type={"text"} name={"password"} name={"password"}/>
+                    <input type={"password"} name={"password"} name={"password"}/>
                     <br/><br/>
                     <label>Votre ville:</label>
                     <input type={"text"} id={"city"} name={"city"}/>
